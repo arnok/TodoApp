@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace TodoApp
 {
-    public partial class items : Form
+    public partial class Items : Form
     {
-        public items()
+        private TodoList list;
+
+        public Items(int listId)
         {
             InitializeComponent();
+            list = db.TodoListHandler.getList(listId);
+            lbx_items.DataSource = list.items;
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

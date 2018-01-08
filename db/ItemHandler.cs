@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace TodoApp.db
 {
@@ -10,17 +11,23 @@ namespace TodoApp.db
     {
         public static List<Item> getItems(int listId)
         {
-            string query = "SELECT name FROM items WHERE listId = @listId;";
+            string query = "SELECT name,done FROM items WHERE listId = @listId;";
             SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@listId", listId);
+
             SqlDataReader reader = database.Query(cmd);
+
+            List<Item> items = new List<Item>();
 
             while (reader.Read())
             {
+                int id = (int)reader["Id"];
                 string name = (string)reader["name"];
-                List<Item> items = ItemHandler.getItems(id);
+                bool done = (bool)reader["done"];
 
-                return new TodoList(id, name, items);
+                items.Add(new Item(id, name, done));
             }
+            return items;
 
             // TODO: more specific exception
             throw new Exception();

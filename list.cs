@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TodoApp
 {
-    public partial class list : Form
+    public partial class List : Form
     {
-        public list()
+        public List()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace TodoApp
 {
-    partial class list
+    partial class List
     {
         /// <summary>
         /// Required designer variable.

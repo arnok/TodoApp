@@ -1,6 +1,6 @@
 ﻿namespace TodoApp
 {
-    partial class items
+    partial class Items
     {
         /// <summary>
         /// Required designer variable.
@@ -89,8 +89,9 @@
             this.btn_add.TabIndex = 8;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // items
+            // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +102,7 @@
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_add);
-            this.Name = "items";
+            this.Name = "Items";
             this.Text = "items";
             this.ResumeLayout(false);
             this.PerformLayout();

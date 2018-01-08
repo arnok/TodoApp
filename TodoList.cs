@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TodoApp.db
+namespace TodoApp
 {
     public class TodoList
     {
@@ -17,6 +17,11 @@ namespace TodoApp.db
             this.id = id;
             this.name = name;
             this.items = items;
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
     }
 }

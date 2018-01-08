@@ -10,40 +10,37 @@ namespace TodoApp
 {
     public static class database
     {
-        private static string connectionString =
-            "Data Source=(local);Initial Catalog=Northwind;"
-            + "Integrated Security=true";
+        private static string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + @"database.mdf;Integrated Security = True";
+
+        public static SqlConnection connection = new SqlConnection(connectionString);
 
         public static SqlDataReader Query(SqlCommand command)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            database.connection.Close();
+            try
             {
-                try
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    return reader;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                command.Connection = database.connection;
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                return reader;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
         public static void NonQuery(SqlCommand command)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                command.Connection = database.connection;
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
