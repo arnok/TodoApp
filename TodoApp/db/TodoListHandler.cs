@@ -73,9 +73,9 @@ namespace TodoApp.db
 
         public static void deleteList(TodoList list)
         {
-            string query = "INSERT INTO lists (name) VALUES(@name); ";
+            string query = "DELETE FROM items WHERE list_id = @id; DELETE FROM lists WHERE id = @id;";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@name", list.name);
+            cmd.Parameters.AddWithValue("@id", list.id);
 
             database.NonQuery(cmd);
         }

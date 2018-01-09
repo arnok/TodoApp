@@ -56,5 +56,11 @@ namespace TodoApp
                 updateList();
             }
         }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            db.TodoListHandler.deleteList((TodoList)cbx_lists.SelectedItem);
+            updateList();
+        }
     }
 }
