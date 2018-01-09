@@ -19,11 +19,23 @@ namespace TodoApp
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-
+            TodoList list = new TodoList(-1, "", null);
+            List listForm = new List(list);
+            if (listForm.ShowDialog() == DialogResult.OK)
+            {
+                db.TodoListHandler.newList(listForm.result);
+                updateList();
+            }
         }
 
         private void lists_Load(object sender, EventArgs e)
         {
+            updateList();
+        }
+
+        private void updateList()
+        {
+            cbx_lists.DataSource = null;
             cbx_lists.DataSource = db.TodoListHandler.getLists();
         }
 
@@ -32,6 +44,17 @@ namespace TodoApp
             int listId = ((TodoList)cbx_lists.SelectedItem).id;
             Items items = new Items(listId);
             items.Show();
+        }
+
+        private void btn_rename_Click(object sender, EventArgs e)
+        {
+            TodoList list = (TodoList)cbx_lists.SelectedItem;
+            List listForm = new List(list);
+            if(listForm.ShowDialog() == DialogResult.OK)
+            {
+                bool success = db.TodoListHandler.updateList(listForm.result);
+                updateList();
+            }
         }
     }
 }

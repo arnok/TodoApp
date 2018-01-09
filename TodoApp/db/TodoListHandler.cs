@@ -20,7 +20,7 @@ namespace TodoApp.db
 
             while (reader.Read())
             {
-                int id = (int)reader["Id"];
+                int id = (int)reader["id"];
                 string name = (string)reader["name"];
 
                 lists.Add(new TodoList(id, name, null));
@@ -50,6 +50,34 @@ namespace TodoApp.db
 
             // TODO: more specific exception
             throw new Exception();
+        }
+
+        public static bool updateList(TodoList list)
+        {
+            string query = "UPDATE lists SET name = @name WHERE id = @id;";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@id", list.id);
+            cmd.Parameters.AddWithValue("@name", list.name);
+
+            return (database.NonQuery(cmd) == 1);
+        }
+
+        public static void newList(TodoList list)
+        {
+            string query = "INSERT INTO lists (name) VALUES(@name); ";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@name", list.name);
+
+            database.NonQuery(cmd);
+        }
+
+        public static void deleteList(TodoList list)
+        {
+            string query = "INSERT INTO lists (name) VALUES(@name); ";
+            SqlCommand cmd = new SqlCommand(query);
+            cmd.Parameters.AddWithValue("@name", list.name);
+
+            database.NonQuery(cmd);
         }
     }
 }

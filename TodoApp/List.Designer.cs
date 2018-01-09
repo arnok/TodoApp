@@ -57,8 +57,9 @@
             this.btn_save.TabIndex = 2;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
-            // list
+            // List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -66,8 +67,9 @@
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbx_name);
-            this.Name = "list";
+            this.Name = "List";
             this.Text = "list";
+            this.Load += new System.EventHandler(this.List_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

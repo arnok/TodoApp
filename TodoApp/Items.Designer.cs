@@ -41,9 +41,8 @@
             this.lbl_list.AutoSize = true;
             this.lbl_list.Location = new System.Drawing.Point(12, 12);
             this.lbl_list.Name = "lbl_list";
-            this.lbl_list.Size = new System.Drawing.Size(64, 17);
+            this.lbl_list.Size = new System.Drawing.Size(0, 17);
             this.lbl_list.TabIndex = 13;
-            this.lbl_list.Text = "Lijst: test";
             // 
             // btn_done
             // 

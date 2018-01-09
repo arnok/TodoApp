@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbx_lists = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_rename = new System.Windows.Forms.Button();
             this.btn_open = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // cbx_lists
             // 
+            this.cbx_lists.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_lists.FormattingEnabled = true;
             this.cbx_lists.Location = new System.Drawing.Point(12, 12);
             this.cbx_lists.Name = "cbx_lists";
@@ -70,6 +73,7 @@
             this.btn_rename.TabIndex = 9;
             this.btn_rename.Text = "Rename";
             this.btn_rename.UseVisualStyleBackColor = true;
+            this.btn_rename.Click += new System.EventHandler(this.btn_rename_Click);
             // 
             // btn_open
             // 
@@ -81,7 +85,12 @@
             this.btn_open.UseVisualStyleBackColor = true;
             this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
-            // lists
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // Lists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,7 +100,7 @@
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.cbx_lists);
-            this.Name = "lists";
+            this.Name = "Lists";
             this.Text = "lists";
             this.Load += new System.EventHandler(this.lists_Load);
             this.ResumeLayout(false);
@@ -104,6 +113,7 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_rename;
         private System.Windows.Forms.Button btn_open;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

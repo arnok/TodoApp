@@ -30,13 +30,14 @@ namespace TodoApp
             }
         }
 
-        public static void NonQuery(SqlCommand command)
+        public static int NonQuery(SqlCommand command)
         {
+            database.connection.Close();
             try
             {
                 command.Connection = database.connection;
                 connection.Open();
-                command.ExecuteNonQuery();
+                return command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

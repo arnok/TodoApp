@@ -11,9 +11,9 @@ namespace TodoApp.db
     {
         public static List<Item> getItems(int listId)
         {
-            string query = "SELECT name,done FROM items WHERE listId = @listId;";
+            string query = "SELECT id,name,done FROM items WHERE list_id = @list_id;";
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@listId", listId);
+            cmd.Parameters.AddWithValue("@list_id", listId);
 
             SqlDataReader reader = database.Query(cmd);
 
@@ -21,7 +21,7 @@ namespace TodoApp.db
 
             while (reader.Read())
             {
-                int id = (int)reader["Id"];
+                int id = (int)reader["id"];
                 string name = (string)reader["name"];
                 bool done = (bool)reader["done"];
 

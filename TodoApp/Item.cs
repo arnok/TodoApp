@@ -18,5 +18,10 @@ namespace TodoApp
             this.name = name;
             this.done = done;
         }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
     }
 }

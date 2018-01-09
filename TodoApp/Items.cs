@@ -19,6 +19,7 @@ namespace TodoApp
             InitializeComponent();
             list = db.TodoListHandler.getList(listId);
             lbx_items.DataSource = list.items;
+            lbl_list.Text = list.name;
         }
 
         private void btn_add_Click(object sender, EventArgs e)
