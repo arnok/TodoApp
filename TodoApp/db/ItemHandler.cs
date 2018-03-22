@@ -28,9 +28,6 @@ namespace TodoApp.db
                 items.Add(new Item(id, name, done));
             }
             return items;
-
-            // TODO: more specific exception
-            throw new Exception();
         }
 
         public static Item getItem(int id)

@@ -26,10 +26,6 @@ namespace TodoApp.db
                 lists.Add(new TodoList(id, name, null));
             }
             return lists;
-
-            // TODO: more specific exception
-            throw new Exception();
-
         }
 
         public static TodoList getList(int id)
@@ -48,7 +44,8 @@ namespace TodoApp.db
                 return new TodoList(id, name, items);
             }
 
-            // TODO: more specific exception
+            // If we can't get a todoList we quit the app.
+            Error.terminal_error("Failed to get todolist.");
             throw new Exception();
         }
 

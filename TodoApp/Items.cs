@@ -41,6 +41,14 @@ namespace TodoApp
             ItemForm itemForm = new ItemForm(item);
             if (itemForm.ShowDialog() == DialogResult.OK)
             {
+                foreach (Item i in list.items)
+                {
+                    if (item.name.Contains(i.name)) {
+                        MessageBox.Show("Item name cannot contain other item names.");
+                        MessageBox.Show("Item name contains '" + i.name + "' at position " + item.name.IndexOf(i.name) + ".");
+                        return;
+                    }
+                }
                 db.ItemHandler.newItem(itemForm.result, this.list.id);
                 updateList();
             }

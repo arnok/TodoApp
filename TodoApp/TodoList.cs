@@ -23,5 +23,10 @@ namespace TodoApp
         {
             return this.name;
         }
+
+        public string ToString(string format)
+        {
+            return String.Format(format, this.name);
+        }
     }
 }

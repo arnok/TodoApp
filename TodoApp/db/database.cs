@@ -16,9 +16,9 @@ namespace TodoApp
 
         public static SqlDataReader Query(SqlCommand command)
         {
-            database.connection.Close();
             try
             {
+                database.connection.Close();
                 command.Connection = database.connection;
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -26,21 +26,23 @@ namespace TodoApp
             }
             catch (Exception ex)
             {
+                Error.terminal_error("Failed to establish database connection.");
                 throw ex;
             }
         }
 
         public static int NonQuery(SqlCommand command)
         {
-            database.connection.Close();
             try
             {
+                database.connection.Close();
                 command.Connection = database.connection;
                 connection.Open();
                 return command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
+                Error.terminal_error("Failed to establish database connection.");
                 throw ex;
             }
         }

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="db\database.cs" />
+    <Compile Include="Error.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="db\ItemHandler.cs" />
     <Compile Include="ItemForm.cs">
@@ -69,6 +70,7 @@
     <Compile Include="ItemForm.Designer.cs">
       <DependentUpon>ItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="TodoList.cs" />
     <Compile Include="db\TodoListHandler.cs" />
     <Compile Include="List.cs">
